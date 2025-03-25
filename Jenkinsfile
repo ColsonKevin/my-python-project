@@ -11,7 +11,7 @@ pipeline {
 			}
 			stage('installation pytest') {
 				steps {
-					sh 'pip install pytest'
+					sh 'apt install pytest'
 				}
 			}
 		}
