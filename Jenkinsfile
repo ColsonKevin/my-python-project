@@ -12,8 +12,8 @@ pipeline {
 			}
 			stage('tests') {
 				steps {
-					 sh 'python3 pip install flask'
-					 sh 'python3 pip install pytest'
+					 //sh 'python3 pip install flask'
+					 //sh 'python3 pip install pytest'
 					 sh 'python3 pytest | tee report.txt'
 				}
 			}
