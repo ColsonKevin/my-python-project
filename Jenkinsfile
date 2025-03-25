@@ -12,10 +12,8 @@ pipeline {
 			}
 			stage('tests') {
 				steps {
-					withPythonEnv('python3') {
-					 sh 'pip install pytest'
+					 sh 'apt install python3-pytest'
 					 sh 'pytest | tee report.txt'
-					}
 				}
 			}
 		}
