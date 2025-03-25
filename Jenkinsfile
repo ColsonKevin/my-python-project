@@ -12,9 +12,9 @@ pipeline {
 			}
 			stage('tests') {
 				steps {
-					 sh 'python3 -m venv .'
-					 sh './bin/pip install pytest'
-					 sh './bin/pytest | tee report.txt'
+					 sh 'python3 pip install flask'
+					 sh 'python3 pip install pytest'
+					 sh 'python3 pytest | tee report.txt'
 				}
 			}
 		}
