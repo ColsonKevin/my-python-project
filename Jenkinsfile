@@ -1,5 +1,9 @@
 pipeline {
-    agent any 
+    agent any
+    environment {
+	DOCKER_LOGIN=kevincolson
+	DOCKER_PASS=dckr_pat_R99-W6LixPZy2AB8v0upvtf6TTI
+    }  
     stages {
     	stage('flak8 et tests') {
 		parallel {
@@ -17,6 +21,13 @@ pipeline {
 					 sh 'python3 pytest | tee report.txt'
 				}
 			}
+		}
+	}
+	stage('docker') {
+		steps {
+			sh 'docker build -t kcolson/my-python-app:latest .'
+			sh 'docker login -u $DOCKER_LOGIN -p $DOCKER_PASS'
+			sh 'docker push kcolson/my-python-app:latest'
 		}
 	}
     }
