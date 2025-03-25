@@ -25,7 +25,7 @@ pipeline {
 	stage('docker') {
 		steps {
 			withCredentials([string(credentialsId:'DOCKER_PASSWORD_KEVIN', variable:'DOCKER_PASS')]) {
-				sh 'docker build -t kcolson/my-python-app:latest .'
+				sh 'docker build -t my-python-app:latest .'
 				sh 'docker login -u $DOCKER_LOGIN -p $DOCKER_PASS'
 				sh 'docker push my-python-app:latest'
 			}
