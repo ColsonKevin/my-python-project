@@ -24,7 +24,7 @@ pipeline {
 	}
 	stage('docker') {
 		steps {
-			withCredentials([string(credentialsId:'DOCKER_PASSWORD', variable:'DOCKER PASS')]) {
+			withCredentials([string(credentialsId:'DOCKER_PASSWORD', variable:'DOCKER_PASS')]) {
 				sh 'echo $DOCKER_PASS_KEVIN | docker login -u $DOCKER_USER --password-stdin'
 				sh 'docker build -t kcolson/my-python-app:latest .'
 				sh 'docker login -u $DOCKER_LOGIN -p $DOCKER_PASS'
