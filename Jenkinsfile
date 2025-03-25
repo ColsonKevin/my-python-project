@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-	DOCKER_LOGIN=kevincolson
+	DOCKER_USER = 'kevincolson'
     }  
     stages {
     	stage('flak8 et tests') {
