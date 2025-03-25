@@ -2,7 +2,7 @@ pipeline {
     agent any 
     stages {
     	stage('flak8 et tests') {
-		parralel {
+		parallel {
 			stage('installation flak8') {
 				steps {
 					sh 'python3 --version'
