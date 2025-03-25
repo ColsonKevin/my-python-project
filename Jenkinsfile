@@ -7,7 +7,7 @@ pipeline {
 				steps {
 					sh 'python3 --version'
 					sh 'python3 -m flake8 --version'
-					sh 'python3 -m flake8 . --count --show-source --statistics || tru0e'
+					sh 'python3 -m flake8 . --count --show-source --statistics || true'
 				}
 			}
 			stage('tests') {
