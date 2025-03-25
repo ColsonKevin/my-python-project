@@ -13,6 +13,8 @@ pipeline {
 			stage('tests') {
 				steps {
 					withPythonEnv('python3') {
+					 sh 'pip install pytest'
+					 sh 'pytest | tee report.txt'
 					}
 				}
 			}
