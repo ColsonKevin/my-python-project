@@ -3,16 +3,16 @@ pipeline {
     stages {
     	stage('flak8 et tests') {
 		parallel {
-			stage('installation flak8') {
+			stage('flak8') {
 				steps {
 					sh 'python3 --version'
 					sh 'python3 -m flake8 --version'
+					sh 'python3 -m flake8 . --count --show-source --statistics || tru0e'
 				}
 			}
-			stage('installation pytest') {
+			stage('tests') {
 				steps {
 					withPythonEnv('python3') {
-						sh 'pip install pytest'
 					}
 				}
 			}
