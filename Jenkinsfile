@@ -11,7 +11,9 @@ pipeline {
 			}
 			stage('installation pytest') {
 				steps {
-					sh 'sudo apt install pytest'
+					withPythonEnv('python3') {
+						sh 'pip install pytest'
+					}
 				}
 			}
 		}
