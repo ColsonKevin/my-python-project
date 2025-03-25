@@ -27,7 +27,7 @@ pipeline {
 			withCredentials([string(credentialsId:'DOCKER_PASSWORD_KEVIN', variable:'DOCKER_PASS')]) {
 				sh 'docker build -t kcolson/my-python-app:latest .'
 				sh 'docker login -u $DOCKER_LOGIN -p $DOCKER_PASS'
-				sh 'docker push kcolson/my-python-app:latest'
+				sh 'docker push my-python-app:latest'
 			}
 		}
 	}
