@@ -12,10 +12,9 @@ pipeline {
 			}
 			stage('tests') {
 				steps {
-					 withPythonEnv('python3') {
-					 	sh 'pip install -U pytest'
-					 	sh 'pytest test_fibonacci.py'
-					 }
+					 sh 'python3 -m venv .'
+					 sh './bin/pip install pytest'
+					 sh './bin/pytest | tee report.txt'
 				}
 			}
 		}
